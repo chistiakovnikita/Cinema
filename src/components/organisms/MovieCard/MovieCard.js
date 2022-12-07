@@ -1,4 +1,4 @@
-import { Component } from '../../core/'
+import { Component } from '../../../core/'
 import './movieCard.scss'
 
 
@@ -7,7 +7,7 @@ export class MovieCard extends Component {
 
 
     static get observedAttributes() {
-        return ['title', 'poster', 'comments']
+        return ['title', 'poster', 'comments', 'id', 'rating']
     }
 
     render() {
@@ -21,7 +21,7 @@ export class MovieCard extends Component {
                 <div class="stars">
                     <div class="stars-in"> </div>
                 </div>
-                    <span class="comments">${this.props.comments?.length ?? 0}</span>
+                    <span class="comments">${JSON.parse(this.props.comments)?.length ?? 0}</span>
                 </div>
             </div>
         `
