@@ -17,28 +17,29 @@ export class Router extends HTMLElement {
     }
 
     navigate(url) {
-        const matchedRoute = matchRoute(this.routes, url)
-        if(matchRoute) {
-            window.history.pushState(null, null, url)
+        const matchedRoute = matchRoute(this.routes, url);
+        if(matchedRoute) {
+            window.history.pushState(null, null, url);
             this.renderPage(matchedRoute)
         }
     }
 
     renderPage(activeRoute) {
-        const { component, title, params = {} } = activeRoute
+        const { component, title, params = {} } = activeRoute;
         if(component) {
             while(this.outlet.firstChild) {
                 this.outlet.removeChild(this.outlet.firstChild)
             }
-            // this.outlet.innerHTML = ''
+
             const updateView = () => {
-                const view = document.createElement(component)
-                document.title = title || document.title
+                const view = document.createElement(component);
+                document.title = title || document.title;
                 for(let key in params) {
                     if(key !== '*') {
-                        view.setAttribute(key, params[key])
+                        view.setAttribute(key, params[key]);
                     }
                 }
+
                 this.outlet.append(view)
             }
 
@@ -48,26 +49,24 @@ export class Router extends HTMLElement {
 
     onPopState = () => {
         this.navigate(window.location.pathname)
-       
     }
 
     onChangeRoute = (evt) => {
         this.navigate(evt.detail.target)
     }
 
+
     connectedCallback() {
-        this.navigate(window.location.pathname)
-        this.addEventListener('popstate', this.onPopState)
-        this.addEventListener('change-route', this.onChangeRoute)
+        this.navigate(window.location.pathname);
+        this.addEventListener('popstate', this.onPopState);
+        window.addEventListener('change-route', this.onChangeRoute)
     }
 
     disconnectedCallback() {
-        this.removeEventListener('popstate', this.onPopState)
-        this.removeEventListener('change-route', this.onChangeRoute)
+        this.removeEventListener('popstate', this.onPopState);
+        window.removeEventListener('change-route', this.onChangeRoute)
     }
 
-
 }
-
 
 customElements.define('it-router', Router)

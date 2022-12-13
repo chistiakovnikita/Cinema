@@ -1,4 +1,4 @@
-import { Component } from '../Component'
+import { Component } from "../Component";
 
 export class Link extends Component {
     constructor() {
@@ -11,7 +11,7 @@ export class Link extends Component {
     }
 
     onClick = (evt) => {
-        evt.preventDefault()
+        evt.preventDefault();
         this.dispatch('change-route', { target: this.props.to })
     }
 
@@ -28,9 +28,8 @@ export class Link extends Component {
             <a href="${this.props.to}">
                 <slot></slot>
             </a>
-        `
+        `;
     }
-}
-
+} 
 
 customElements.define('it-link', Link)

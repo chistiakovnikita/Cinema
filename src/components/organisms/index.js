@@ -1,3 +1,3 @@
-export * from './Footer/Footer'
-export * from './Header/'
-export * from './MovieCard/'
+export * from './Footer/Footer';
+export * from './Header/Header';
+export * from './MovieCard/MovieCard';
