@@ -10,7 +10,7 @@ export class Header extends core.Component {
   onSignOut = (evt) => {
     evt.preventDefault();
     if(evt.target.closest('.sign-out-link')) {
-        this.dispatch('sign-out')
+        this.dispatch('user-is-logouted')
     }
   }
 
@@ -38,16 +38,6 @@ export class Header extends core.Component {
                             <span class="link">Admin</span>
                         </it-link>
                     </li>
-                    <li>
-                        <it-link to="${appRoutes.signIn}">
-                            <span class="link">sign In</span>
-                        </it-link>
-                    </li>
-                    <li>
-                        <it-link to="${appRoutes.signUp}">
-                            <span class="link">sign Up</span>
-                        </it-link>
-                    </li>
                     ${
                       JSON.parse(this.props["is-logged"])
                         ? `
@@ -57,7 +47,18 @@ export class Header extends core.Component {
                                 </a>
                             </li>
                     `
-                        : ``
+                        : `
+                        <li>
+                            <it-link to="${appRoutes.signIn}">
+                                <span class="link">sign In</span>
+                            </it-link>
+                        </li>
+                        <li>
+                            <it-link to="${appRoutes.signUp}">
+                                <span class="link">sign Up</span>
+                            </it-link>
+                        </li>
+                        `
                     }
                 </ul>
             </div>

@@ -37,6 +37,7 @@ export class SignInPage extends Component {
       .then((user) => {
         authService.user = user;
         this.dispatch("change-route", { target: appRoutes.home });
+        this.dispatch('user-is-logged');
       })
       .catch((error) => {
         this.setState((state) => {
