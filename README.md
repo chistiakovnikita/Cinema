@@ -1,1 +1,1 @@
-# Cinema
+# mentoring-simple-webpack-starter
