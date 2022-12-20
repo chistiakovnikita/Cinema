@@ -4,10 +4,10 @@ export class CloudService {
   constructor() {
     this.config = {
       apiKey: process.env.API_KEY,
-      authDomain: "kino-82a49.firebaseapp.com",
-      projectId: "kino-82a49",
-      storageBucket: "kino-82a49.appspot.com",
-      messagingSenderId: "807701075843",
+      authDomain: "online-cinema-fb342.firebaseapp.com",
+      projectId: "online-cinema-fb342",
+      storageBucket: "online-cinema-fb342.appspot.com",
+      messagingSenderId: "1006611980075",
       appId: process.env.APP_ID
     };
 
